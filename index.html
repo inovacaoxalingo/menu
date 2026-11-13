@@ -391,7 +391,8 @@ var COPIA = {"CATALOGO":[["09355","Balanço Ursinho – S/ Gancho","P","Balanço
     if (!soRef && !pal.length) return null;
     var r = IDX.filter(function(it){
       if (soRef) return it.ref.indexOf(dig) >= 0;
-      return pal.every(function(w){ return it.busca.indexOf(w) >= 0; });
+      var b = ' ' + it.busca;
+      return pal.every(function(w){ return b.indexOf(' ' + w) >= 0; });  /* compara o começo das palavras */
     });
     r.forEach(function(it){
       var s = Math.min(it.tem, 4) * 10;
